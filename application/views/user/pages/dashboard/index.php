@@ -1,29 +1,31 @@
             <div class="container pt-4 mt-5">
                 <div class="row justify-content-between">
                     <div class="col-lg-7">
-                        <div class="card post-item bg-transparent border-0 mb-5">
-                            <a href="post-details.html">
-                                <img class="card-img-top rounded-0" src="images/post/post-lg/01.png" alt="">
-                            </a>
-                            <div class="card-body px-0">
-                                <h2 class="card-title">
-                                    <a class="text-white opacity-75-onHover" href="post-details.html">Id reprehrenderit mollit in tempor naid incididunt cupidatat consectetura</a>
-                                </h2>
-                                <ul class="post-meta mt-3">
-                                    <li class="d-inline-block mr-3">
-                                        <span class="fas fa-clock text-primary"></span>
-                                        <a class="ml-1" href="#">24 April, 2016</a>
-                                    </li>
-                                    <li class="d-inline-block">
-                                        <span class="fas fa-list-alt text-primary"></span>
-                                        <a class="ml-1" href="#">Photography</a>
-                                    </li>
-                                </ul>
-                                <p class="card-text my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt leo mi, viverra urna. Arcu velit risus, condimentum ut vulputate cursus porttitor turpis in. Diam egestas nec massa, habitasse. Tincidt dui.</p>
-                                <a href="post-details.html" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+                        <?php foreach ($post as $p) : ?>
+                            <div class="card post-item bg-transparent border-0 mb-5">
+                                <a href="<?= base_url("index.php/Post/Detail/$p->slugpost") ?>">
+                                    <img class="card-img-top rounded-0" src="<?= base_url('__assets/img/postingan/' . $p->photo) ?>" alt="">
+                                </a>
+                                <div class="card-body px-0">
+                                    <h2 class="card-title">
+                                        <a class="text-white opacity-75-onHover" href="<?= base_url("index.php/Post/Detail/$p->slugpost") ?>"><?= $p->posttitle ?></a>
+                                    </h2>
+                                    <ul class="post-meta mt-3">
+                                        <li class="d-inline-block mr-3">
+                                            <span class="fas fa-clock text-primary"></span>
+                                            <a class="ml-1" href="#"><?= $p->tglpost ?></a>
+                                        </li>
+                                        <li class="d-inline-block">
+                                            <span class="fas fa-list-alt text-primary"></span>
+                                            <a class="ml-1" href="#"><?= $p->categoryname ?></a>
+                                        </li>
+                                    </ul>
+                                    <p class="card-text my-4"><?= character_limiter($p->content,100) ?></p>
+                                    <a href="<?= base_url("index.php/Post/Detail/$p->slugpost") ?>" class="btn btn-primary">Read More <img src="images/arrow-right.png" alt=""></a>
+                                </div>
                             </div>
-                        </div>
-                        <!-- end of post-item -->
+                            <!-- end of post-item -->
+                        <?php endforeach; ?>
                     </div>
                     <div class="col-lg-4 col-md-5">
                         <div class="widget text-center">

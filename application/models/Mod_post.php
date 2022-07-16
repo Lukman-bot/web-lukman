@@ -82,4 +82,14 @@ class Mod_post extends CI_Model
         $this->db->where('post.postid', $postid);
         return $this->db->get();
     }
+
+    public function getPost()
+    {
+        $this->db->select("post.*, category.categoryname, category.slug");
+        $this->db->from('post');
+        $this->db->join('category', 'post.idcategory=category.categoryid', 'left');
+        $this->db->order_by('tglpost', 'desc');
+        // $this->db->limit(15);
+        return $this->db->get()->result();
+    }
 }
