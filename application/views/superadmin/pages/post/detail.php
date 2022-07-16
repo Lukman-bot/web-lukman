@@ -1,3 +1,14 @@
+        <section class="content-header">
+            <h1>
+                <?= $title ?>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="<?= base_url('index.php/superadminnn/Home') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="<?= base_url('index.php/superadminnn/Post') ?>">Data Postingan</a></li>
+                <li class="active">Detail Postingan</li>
+            </ol>
+        </section>
+        
         <section class="content">
             <div class="row">
                 <section class="col-lg-7">
