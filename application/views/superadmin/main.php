@@ -127,6 +127,8 @@
 <!-- DataTables -->
 <script src="<?= base_url('__assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
 <script src="<?= base_url('__assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') ?>"></script>
+<!-- CK Editor -->
+<script src="<?= base_url('__assets/admin/bower_components/ckeditor/ckeditor.js') ?>"></script>
 <!-- page script -->
 <script>
     $(function () {
@@ -139,6 +141,15 @@
             'info'        : true,
             'autoWidth'   : false
         })
+    })
+</script>
+<script>
+    $(function () {
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('editor1')
+        //bootstrap WYSIHTML5 - text editor
+        $('.textarea').wysihtml5()
     })
 </script>
 </body>

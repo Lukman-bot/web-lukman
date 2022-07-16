@@ -88,7 +88,7 @@ class Post extends CI_Controller
     public function Update($id)
     {
         if(!$_POST) {
-            $input = (object) $this->produk->getDataById($id);
+            $input = (object) $this->post->getDataById($id);
         } else {
             $input = (object) $this->input->post(null, true);
         }
@@ -202,7 +202,7 @@ class Post extends CI_Controller
     public function Getid($postid=null)
     {
         $this->db->where('postid', $postid);
-        $data=$this->db->get('product')->row();
+        $data=$this->db->get('post')->row();
         echo json_encode($data);
     }
 }
