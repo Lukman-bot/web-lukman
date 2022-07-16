@@ -205,4 +205,16 @@ class Post extends CI_Controller
         $data=$this->db->get('post')->row();
         echo json_encode($data);
     }
+
+    public function Detail($postid)
+    {
+        $data['title']          = 'Detail Postingan';
+        $data['page']           = 'post/detail';
+        $data['user']           = $this->admin->mengambil('users',['namauser' => $this->session->userdata('namauser')])->row_array();
+        $data['photo']          = $this->admin->mengambil('users',['photo' => $this->session->userdata('photo')])->row_array();
+        $data['detail']         = $this->post->getDetail($postid)->row();
+        $data['footer']         = 'LukmanSoft';
+
+        $this->load->view('superadmin/main', $data);
+    }
 }

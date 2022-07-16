@@ -71,4 +71,15 @@ class Mod_post extends CI_Model
         $this->db->where('postid', $id);
         $this->db->delete('post');
     }
+
+    public function getDetail($postid)
+    {
+        $this->db->select('post.*, category.categoryname, subcategory.namesubcategory, users.namauser');
+        $this->db->from('post');
+        $this->db->join('category','post.idcategory=category.categoryid', 'left');
+        $this->db->join('subcategory', 'post.idsubcategory=subcategory.subcategoryid', 'left');
+        $this->db->join('users', 'post.iduser=users.userid', 'left');
+        $this->db->where('post.postid', $postid);
+        return $this->db->get();
+    }
 }

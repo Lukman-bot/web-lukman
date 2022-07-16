@@ -35,6 +35,9 @@
                                         <a href=".base_url()."index.php/Superadminnn/Post/Update/".$showPost->postid." class='btn btn-primary btn-sm' title='Edit Postingan'>
                                             <i class='fa fa-edit'></i>
                                         </a>
+                                        <a href=".base_url()."index.php/Superadminnn/Post/Detail/".$showPost->postid." class='btn btn-info btn-sm' title='Lihat Detail Postingan'>
+                                            <i class='fa fa-eye'></i>
+                                        </a>
                                         <button class='btn btn-danger btn-sm' onClick='hapus($showPost->postid)' title='Hapus'>
                                             <i class='fa fa-trash'></i>
                                         </button>
